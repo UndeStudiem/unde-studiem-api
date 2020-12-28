@@ -2,11 +2,8 @@ const jwt = require('jsonwebtoken');
 
 const {
     ServerError
-} = require('../../errors');
+} = require('../../errors/server_errors');
 
-const {
-    validateFields
-} = require('../../utils');
 
 const options = {
     issuer: process.env.JWT_ISSUER,

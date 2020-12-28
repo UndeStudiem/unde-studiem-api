@@ -1,4 +1,4 @@
-import { University } from '../../data';
+const { University } = require('../../data');
 
 const create = async (name, city) => {
    const record = new University({

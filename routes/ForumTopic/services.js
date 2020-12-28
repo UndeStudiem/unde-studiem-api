@@ -1,4 +1,4 @@
-import { ForumTopic } from '../../data';
+const { ForumTopic } = require('../../data');
 
 const create = async (name, universityId) => {
    const record = new ForumTopic({

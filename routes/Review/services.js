@@ -1,4 +1,4 @@
-import { Review } from '../../data';
+const { Review } = require('../../data');
 
 const create = async (text, authorId, programId, score) => {
    const record = new Review({

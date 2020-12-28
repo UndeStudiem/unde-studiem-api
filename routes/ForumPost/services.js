@@ -1,4 +1,4 @@
-import { ForumPost } from '../../data';
+const { ForumPost } = require('../../data');
 
 const create = async (text, authorId, forumTopicId) => {
    const record = new ForumPost({

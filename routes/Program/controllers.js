@@ -2,11 +2,11 @@ const express = require('express');
 const { checkSchema } = require('express-validator');
 
 const service = require('./services.js');
-const { collegeSchema, querySchema } = require('./schemas.js');
+const { querySchema, programSchema } = require('./schemas.js');
 
 const router = express.Router();
 
-router.post('/', checkSchema(collegeSchema), async (req, res, next) => {
+router.post('/', checkSchema(programSchema), async (req, res, next) => {
    const {
       name,
       collegeId

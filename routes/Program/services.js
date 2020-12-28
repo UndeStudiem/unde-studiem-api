@@ -1,4 +1,4 @@
-import { Program } from '../../data';
+const { Program } = require('../../data');
 
 const create = async (name, collegeId) => {
    const record = new Program({

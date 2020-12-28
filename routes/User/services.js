@@ -1,7 +1,7 @@
-import { User } from '../../data';
-import { generateToken } from '../../security/Jwt';
-import { ServerError } from '../../errors';
-import { hash, compare } from '../../security/Password';
+const { User } = require('../../data')
+const { generateToken } = require('../../security/Jwt');
+const { ServerError } = require('../../errors/server_errors');
+const { hash, compare } = require('../../security/Password');
 
 const register = async (username, password) => {
     const hashedPassword = await hash(password);
@@ -29,7 +29,7 @@ const login = async (username, password) => {
     throw new ServerError("Combinatia de username si parola nu este buna!", 404);
 };
 
-export default {
+module.exports = {
     register,
     login
 }

@@ -3,11 +3,7 @@ const authSchema = {
    username: {
       in: ['body'],
       errorMessage: 'Username is missing from body',
-      isAlpha: {
-         options: {
-            ignore: ['_', '.', '-']
-         }
-      },
+      matches: '[a-zA-Z0-9_\.\-]'
    },
    password: {
       in: ['body'],

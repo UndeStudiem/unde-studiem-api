@@ -1,4 +1,4 @@
-import { Forum } from '../../data';
+const { Forum } = require('../../data');
 
 const create = async (name, universityId) => {
    const record = new Forum({

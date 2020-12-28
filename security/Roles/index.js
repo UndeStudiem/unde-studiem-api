@@ -1,6 +1,6 @@
 const {
     ServerError
-} = require('../../errors');
+} = require('../../errors/server_errors');
 
 const authorizeRoles = (...roles) => {
     return (req, res, next) => {

@@ -1,11 +1,11 @@
-import UserController from '../User/controllers.js';
-import UniversityController from '../University/controllers.js';
-import CollegeController from '../College/controllers.js';
-import ProgramController from '../Program/controllers.js';
-import ForumController from '../Forum/controllers.js';
-import ForumTopicController from '../ForumTopic/controllers.js';
-import ForumPostController from '../ForumPost/controllers.js';
-import ReviewController from '../Review/controllers.js';
+const UserController = require('./User/controllers.js');
+const UniversityController = require('./University/controllers.js');
+const CollegeController = require('./College/controllers.js');
+const ProgramController = require('./Program/controllers.js');
+const ForumController = require('./Forum/controllers.js');
+const ForumTopicController = require('./ForumTopic/controllers.js');
+const ForumPostController = require('./ForumPost/controllers.js');
+const ReviewController = require('./Review/controllers.js');
 
 const Router = require('express')();
 
@@ -19,4 +19,4 @@ Router.use('/post', ForumPostController);
 Router.use('/review', ReviewController);
 
 
-export default Router;
+module.exports = Router;
