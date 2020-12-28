@@ -48,12 +48,7 @@ const authorizeAndExtractToken = async (req, res, next) => {
         }
         const token = req.headers.authorization.split(" ")[1]; // se separa dupa " " deoarece este de forma: Bearer 1wqeiquqwe0871238712qwe
 
-        validateFields({
-            jwt: {
-                value: token,
-                type: 'jwt'
-            }
-        });
+        console.log(token[token.length - 1]);
 
         const decoded = await verifyAndDecodeData(token);
         /*

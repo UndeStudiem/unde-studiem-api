@@ -1,0 +1,14 @@
+### Create a forum post
+POST http://localhost:3000/api/post
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmVhMDIxOWViYmZjMGFkYzZiMmZiZWIiLCJ1c2VyUm9sZSI6InVzZXIiLCJpYXQiOjE2MDkxODQzOTgsImF1ZCI6InBvc3RtYW4iLCJpc3MiOiJzdHVkZW50Iiwic3ViIjoiVG9rZW4gcGVudHJ1IGxhYm9yYXRvcnVsIDYifQ.7HPHuhOikAep-5ovu6MeZxyRJQsGhrEHPElzMhnzLmc
+
+{
+   "text": "This sucks",
+   "forumTopicId": "5fea3372fc39d3d58435b1de"
+}
+
+### Get forum posts
+GET http://localhost:3000/api/post?page=0&size=10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmVhMDIxOWViYmZjMGFkYzZiMmZiZWIiLCJ1c2VyUm9sZSI6InVzZXIiLCJpYXQiOjE2MDkxODQzOTgsImF1ZCI6InBvc3RtYW4iLCJpc3MiOiJzdHVkZW50Iiwic3ViIjoiVG9rZW4gcGVudHJ1IGxhYm9yYXRvcnVsIDYifQ.7HPHuhOikAep-5ovu6MeZxyRJQsGhrEHPElzMhnzLmc

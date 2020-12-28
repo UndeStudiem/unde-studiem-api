@@ -11,6 +11,7 @@ const create = async (name, universityId) => {
 const getAll = async (query) => {
    return await Forum
       .find()
+      .populate('university')
       .skip(query.size * query.page)
       .limit(query.size);
 };

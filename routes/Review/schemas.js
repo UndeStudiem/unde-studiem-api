@@ -13,8 +13,7 @@ const reviewSchema = {
    programId: {
       in: ['body'],
       errorMessage: 'Program Id is missing from body',
-      isInt: true,
-      toInt: true
+      matches: '^[0-9a-fA-F]{24}$',
    },
    score : {
       in: ['body'],
@@ -31,13 +30,13 @@ const reviewSchema = {
 
 
 const querySchema = {
-   pageNumber: {
+   page: {
       in: ['query'],
       errorMessage: 'Page number is missing from query',
       isInt: true,
       toInt: true
    },
-   pageSize: {
+   size: {
       in: ['query'],
       errorMessage: 'Page size city is missing from query',
       isInt: true,

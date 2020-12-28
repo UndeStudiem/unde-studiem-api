@@ -1,6 +1,7 @@
 const express = require('express');
 const { checkSchema } = require('express-validator');
 const { authorizeAndExtractToken } = require('../../security/Jwt')
+const { ObjectId } = require('mongodb');
 const service = require('./services.js');
 const { reviewSchema, querySchema } = require('./schemas.js');
 
@@ -13,11 +14,11 @@ router.post('/', authorizeAndExtractToken, checkSchema(reviewSchema), async (req
       score
    } = req.body;
    const {
-      user
-   } = req.decoded;
+      decoded
+   } = req.state;
 
    try {
-      await service.create(text, user.id, programId, score);
+      await service.create(text, ObjectId(decoded.userId), ObjectId(programId), score);
 
       res.status(201).end();
    } catch (err) {

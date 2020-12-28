@@ -3,11 +3,7 @@ const programSchema = {
    name: {
       in: ['body'],
       errorMessage: 'Program name is missing from body',
-      isAlpha: {
-         options: {
-            ignore: [' ', '\'', '\"']
-         }
-      },
+      matches: '[a-zA-Z0-9_\.\-]',
       isLength: {
          options: {
             max: 100
@@ -17,20 +13,19 @@ const programSchema = {
    collegeId: {
       in: ['body'],
       errorMessage: 'College Id is missing from body',
-      isInt: true,
-      toInt: true
+      matches: '^[0-9a-fA-F]{24}$',
    }
 };
 
 
 const querySchema = {
-   pageNumber: {
+   page: {
       in: ['query'],
       errorMessage: 'Page number is missing from query',
       isInt: true,
       toInt: true
    },
-   pageSize: {
+   size: {
       in: ['query'],
       errorMessage: 'Page size city is missing from query',
       isInt: true,

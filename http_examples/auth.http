@@ -1,5 +1,14 @@
-# Register a new user
+### Register a new user
 POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+   "username": "test_account",
+   "password": "big_secret" 
+}
+
+### Login as an user
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {

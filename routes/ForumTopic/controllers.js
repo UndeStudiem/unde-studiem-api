@@ -1,6 +1,6 @@
 const express = require('express');
 const { checkSchema } = require('express-validator');
-
+const { ObjectId } = require('mongodb');
 const service = require('./services.js');
 const { forumTopicSchema, querySchema } = require('./schemas.js');
 
@@ -13,7 +13,7 @@ router.post('/', checkSchema(forumTopicSchema), async (req, res, next) => {
    } = req.body;
 
    try {
-      await service.create(name, forumId);
+      await service.create(name, ObjectId(forumId));
 
       res.status(201).end();
    } catch (err) {

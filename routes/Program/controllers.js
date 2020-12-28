@@ -1,6 +1,6 @@
 const express = require('express');
 const { checkSchema } = require('express-validator');
-
+const { ObjectId } = require('mongodb');
 const service = require('./services.js');
 const { querySchema, programSchema } = require('./schemas.js');
 
@@ -13,7 +13,7 @@ router.post('/', checkSchema(programSchema), async (req, res, next) => {
    } = req.body;
 
    try {
-      await service.create(name, collegeId);
+      await service.create(name, ObjectId(collegeId));
 
       res.status(201).end();
    } catch (err) {

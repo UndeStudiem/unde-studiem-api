@@ -1,0 +1,14 @@
+### Create a forum topic
+POST http://localhost:3000/api/topic
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmVhMDIxOWViYmZjMGFkYzZiMmZiZWIiLCJ1c2VyUm9sZSI6InVzZXIiLCJpYXQiOjE2MDkxODA2OTgsImF1ZCI6InBvc3RtYW4iLCJpc3MiOiJzdHVkZW50Iiwic3ViIjoiVG9rZW4gcGVudHJ1IGxhYm9yYXRvcnVsIDYifQ.0MNobDOO9CZ0Gaec3Rj7_l404848sZIa2PLXiOmqE0I
+
+{
+   "name": "UPB Jokes",
+   "forumId": "5fea3141bf1192cf66db3487"
+}
+
+### Get forum topics
+GET http://localhost:3000/api/topic?page=0&size=10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmVhMDIxOWViYmZjMGFkYzZiMmZiZWIiLCJ1c2VyUm9sZSI6InVzZXIiLCJpYXQiOjE2MDkxODA2OTgsImF1ZCI6InBvc3RtYW4iLCJpc3MiOiJzdHVkZW50Iiwic3ViIjoiVG9rZW4gcGVudHJ1IGxhYm9yYXRvcnVsIDYifQ.0MNobDOO9CZ0Gaec3Rj7_l404848sZIa2PLXiOmqE0I
