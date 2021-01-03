@@ -1,0 +1,24 @@
+.Home{
+    float: left;
+    text-align: left;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 200px;
+    
+
+    .Pagetitle{
+        text-align: center;
+    }
+
+    .Sugestions{
+        margin-top: 100px;
+        text-align: center;
+
+        .SugestionsTitle{
+            font-size: 30px;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+    }
+}
