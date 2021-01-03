@@ -7,7 +7,6 @@ function Footer() {
 
   return (
     <div className="Footer">
-cevaaa
       <br/>
 
       <div className="FooterContent">

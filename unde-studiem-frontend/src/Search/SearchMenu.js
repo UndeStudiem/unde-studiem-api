@@ -7,7 +7,6 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import RestoreIcon from '@material-ui/icons/Restore';
 
 
 import SearchTab from './SearchTab';
@@ -48,7 +47,8 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500,
+    width: 800,
+    margin: 'auto'
   },
 }));
 
@@ -77,8 +77,10 @@ export default function SearchMenu() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Login" icon={<RestoreIcon />} {...a11yProps(0)} />
-          <Tab label="Sign in" {...a11yProps(1)} />
+          {/* icon={<RestoreIcon />} */}
+          <Tab label="Programe de Studii" {...a11yProps(0)} />
+          <Tab label="Facultati" {...a11yProps(1)} />
+          <Tab label="Universitati" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -87,10 +89,13 @@ export default function SearchMenu() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-            <SearchTab/>
+            <SearchTab type={0}/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-            <SearchTab/>
+            <SearchTab type={1}/>
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+            <SearchTab type={2}/>
         </TabPanel>
       </SwipeableViews>
     </div>
