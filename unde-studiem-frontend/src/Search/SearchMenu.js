@@ -48,7 +48,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     width: 800,
-    margin: 'auto'
+    margin: 'auto',
+    alignItems: 'left',
   },
 }));
 

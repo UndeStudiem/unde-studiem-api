@@ -4,6 +4,8 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import { Link} from "react-router-dom";
+import Chip from '@material-ui/core/Chip';
 
 
 import { makeStyles} from '@material-ui/core/styles';
@@ -11,10 +13,17 @@ import { makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 200,
+    minWidth: 250,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  chips: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  chip: {
+    margin: 2,
   },
 }));
 
@@ -33,7 +42,7 @@ export default function SearchTab(props) {
 
   const [values, setValues] = React.useState({
     degree: '',
-    field: '',
+    field: [],
     city: ''
   });
 
@@ -65,21 +74,6 @@ export default function SearchTab(props) {
       }
 
       <FormControl className={classes.formControl}>
-      <InputLabel id="field-label">Domeniu</InputLabel>
-        <Select
-          labelId="field-label"
-          id="field"
-          value={values.field}
-          onChange={handleChange('field')}
-        >
-
-          {fields.map(Element => 
-              <MenuItem value={Element}>{Element}</MenuItem>
-            )}
-        </Select>
-      </FormControl>
-      
-      <FormControl className={classes.formControl}>
       <InputLabel id="city-label">Oras</InputLabel>
         <Select
           labelId="city-label"
@@ -93,10 +87,36 @@ export default function SearchTab(props) {
         </Select>
       </FormControl>
 
+      <FormControl className={classes.formControl}>
+      <InputLabel id="field-label">Domeniu</InputLabel>
+        <Select
+          labelId="field-label"
+          id="field"
+          multiple
+          value={values.field}
+          onChange={handleChange('field')}
+          renderValue={(selected) => (
+            <div className={classes.chips}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} className={classes.chip} />
+              ))}
+            </div>
+          )}
+        >
+
+          {fields.map(Element => 
+              <MenuItem value={Element}>{Element}</MenuItem>
+            )}
+        </Select>
+      </FormControl>
+
       <br/><br/><br/>
-      <Button variant="contained" color="primary" size="large">
-        Cauta
-      </Button>
+      <Link to="/results?type=programs&degree=master&city=Bucuresti">
+        <Button variant="contained" color="primary" size="large">
+          Cauta
+        </Button>
+      </Link>
+
 
     </div>
 
