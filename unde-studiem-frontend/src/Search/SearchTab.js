@@ -111,7 +111,7 @@ export default function SearchTab(props) {
       </FormControl>
 
       <br/><br/><br/>
-      <Link to="/results?type=programs&degree=master&city=Bucuresti">
+      <Link to="/programs?type=programs&degree=master&city=Bucuresti">
         <Button variant="contained" color="primary" size="large">
           Cauta
         </Button>

@@ -8,40 +8,101 @@ import { useLocation } from "react-router-dom";
 
 let list = [
   {
-    name: 'Abc123',
-    college: 'Abc123',
+    name: 'Calculatoare si tehnologia informatiei',
+    college: 'Facultatea de Automatica si Calculatoare',
+    university: 'Universitatea politehnica din Bucuresti',
+    city: 'Bucuresti',
     degree: 'Bachelor',
-    field: 'Abc123'
-
+    fields: ['IT', 'programare', 'stiinte ingineresti'],
+    lang: 'RO',
+    type: 'IF',
+    years: 4,
+    semesters: 8,
+    credits: 200,
+    locuri: 250,
+    buget: 100,
+    loc_taxa: 150,
+    taxa: 5000,
+    admition: 'DOSAR, EXAMEN',
+    courses: {}
   },
   {
-    name: 'Abc123',
-    college: 'Abc123',
+    name: 'Ingineria sistemelor',
+    college: 'Facultatea de Automatica si Calculatoare',
+    university: 'Politehnica',
+    city: 'Bucuresti',
     degree: 'Bachelor',
-    field: 'Abc123'
-
+    fields: ['IT', 'programare'],
+    lang: 'RO',
+    type: 'IF',
+    years: 4,
+    semesters: 8,
+    credits: 200,
+    locuri: 250,
+    buget: 100,
+    loc_taxa: 150,
+    taxa: 5000,
+    admition: 'DOSAR',
+    courses: {}
   },
   {
-    name: 'Abc123',
-    college: 'Abc123',
-    degree: 'Bachelor',
-    field: 'Abc123'
-
+    name: 'Calculatoare si tehnologia informatiei',
+    college: 'Facultatea de Automatica si Calculatoare',
+    university: 'Politehnica',
+    city: 'Bucuresti',
+    degree: 'Master',
+    fields: ['IT', 'programare'],
+    lang: 'RO',
+    type: 'IF',
+    years: 4,
+    semesters: 8,
+    credits: 200,
+    locuri: 250,
+    buget: 100,
+    loc_taxa: 150,
+    taxa: 5000,
+    admition: 'DOSAR',
+    courses: {}
   },
   {
-    name: 'Abc123',
-    college: 'Abc123',
-    degree: 'Bachelor',
-    field: 'Abc123'
-
+    name: 'Calculatoare si tehnologia informatiei',
+    college: 'Facultatea de Automatica si Calculatoare',
+    university: 'Politehnica',
+    city: 'Bucuresti',
+    degree: 'Doctoral',
+    fields: ['IT', 'programare'],
+    lang: 'RO',
+    type: 'IF',
+    years: 4,
+    semesters: 8,
+    credits: 200,
+    locuri: 250,
+    buget: 100,
+    loc_taxa: 150,
+    taxa: 5000,
+    admition: 'DOSAR',
+    courses: {}
   },
   {
-    name: 'Abc123',
-    college: 'Abc123',
+    name: 'Calculatoare si tehnologia informatiei',
+    college: 'Facultatea de Automatica si Calculatoare',
+    university: 'Politehnica',
+    city: 'Bucuresti',
     degree: 'Bachelor',
-    field: 'Abc123'
-
+    fields: ['IT', 'programare'],
+    lang: 'RO',
+    type: 'IF',
+    years: 4,
+    semesters: 8,
+    credits: 200,
+    locuri: 250,
+    buget: 100,
+    loc_taxa: 150,
+    taxa: 5000,
+    admition: 'DOSAR',
+    courses: {}
   },
+
 ]
 
 function useQuery() {
@@ -66,9 +127,9 @@ function Results(props) {
 
       </div>
 
-      {query.get("type")}
+      {/* {query.get("type")}
       {query.get("degree")}
-      {query.get("city")}
+      {query.get("city")} */}
 
       <div className='Results-list'>
 
