@@ -31,7 +31,7 @@ let fields = [
   'Drept', 'Finante', 'Contabilitate', 'Tehnologia informatiei', 'Stiinte', 'Matematica'
 ];
 
-let cities = [
+let allCities = [
   'Bucuresti', 'Cluj', 'Timisoara', 'Iasi', 'Brasov', 'Constanta'
 ]
 
@@ -43,7 +43,7 @@ export default function SearchTab(props) {
   const [values, setValues] = React.useState({
     degree: '',
     field: [],
-    city: ''
+    cities: []
   });
 
 
@@ -78,10 +78,18 @@ export default function SearchTab(props) {
         <Select
           labelId="city-label"
           id="city"
-          value={values.city}
-          onChange={handleChange('city')}
+          multiple
+          value={values.cities}
+          onChange={handleChange('cities')}
+          renderValue={(selected) => (
+            <div className={classes.chips}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} className={classes.chip} />
+              ))}
+            </div>
+          )}
         >
-          {cities.map(Element => 
+          {allCities.map(Element => 
               <MenuItem value={Element}>{Element}</MenuItem>
             )}
         </Select>
@@ -111,7 +119,7 @@ export default function SearchTab(props) {
       </FormControl>
 
       <br/><br/><br/>
-      <Link to="/results?type=programs&degree=master&city=Bucuresti">
+      <Link to="/programs?type=programs&degree=master&fields=IT-stiinte sociale&cities=Bucuresti-Constanta">
         <Button variant="contained" color="primary" size="large">
           Cauta
         </Button>

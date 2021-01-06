@@ -7,22 +7,56 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import './CardItem.scss'
+import Chip from '@material-ui/core/Chip'; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    height: 200,
+    height: 250,
+
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
+
   },
   content: {
-    flex: '1 0 auto',
+    textAlign: 'left',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  subcontent: {
+    textAlign: 'left',
+    display: 'flex',
+    flexDirection: 'column',
+    width: 400,
+    height: 150
+  },
+  subcontent2: {
+    textAlign: 'left',
+    display: 'flex',
+    flexDirection: 'row',
+    width: 500,
+    //height: 140
+  },
+  cell: {
+    // borderLeft: `2px solid ${theme.palette.divider}`,
+    // borderBottom: `2px solid ${theme.palette.divider}`,
+    // borderRight: `2px solid ${theme.palette.divider}`,
+    // borderTop: `2px solid ${theme.palette.divider}`,
+
+    padding: theme.spacing(1, 2),
+    minWidth: 120,
   },
   cover: {
-    width: 200,
+    width: 100,
+    height: 100
+  },
+  data:{
+    display: 'flex',
+    flexDirection: 'column',
   },
   controls: {
     display: 'flex',
@@ -45,15 +79,141 @@ export default function CardItem2(props) {
           title={props.item.name}
         />
         <div className={classes.details}>
-          <CardContent className={classes.content}>
-            <Typography component="h5" variant="h5">
-              {props.item.name}
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary">
-              Mac Miller
-            </Typography>
-          </CardContent>
-          <div className={classes.controls}>
+          <div className={classes.content}>
+            <CardContent className={classes.subcontent}>
+              <Typography component="h6" variant="h6">
+                {props.item.name}
+              </Typography>
+              <Typography variant="subtitle1" color="textSecondary">
+                Program de &nbsp;
+                { props.item.degree == 'Bachelor' ? 'licenta' :
+                  props.item.degree == 'Master' ? 'masterat' :
+                  props.item.degree == 'Doctoral' ? 'doctorat' : ''
+                }
+              </Typography>
+              <Typography component="body1" variant="body1">
+                {props.item.college}
+              </Typography>
+              <Typography component="body1" variant="body1">
+                {props.item.university}
+              </Typography>
+              <Typography component="body1" variant="body1">
+                <LocationOnIcon />
+                {props.item.city}
+              </Typography>
+              <br/>
+              <Typography component="body1" variant="body1">
+                {props.item.fields.map(Element => <><Chip label={Element} /> &nbsp;</>)}
+              </Typography>
+            </CardContent>
+
+            <div className={classes.data}>
+              <CardContent className={classes.subcontent2}>
+
+              
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Limba predare
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.lang}
+                </Typography>
+              </div>
+
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Tip invatamant
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.type}
+                </Typography>
+              </div>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Ani de studiu
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.years}
+                </Typography>
+              </div>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Nr semestre
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.semesters}
+                </Typography>
+              </div>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Total credite
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.credits}
+                </Typography>
+              </div>
+            </CardContent>
+
+
+            <CardContent className={classes.subcontent2}>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Total locuri
+                </Typography>
+                <br/>
+                <Typography component="body1" variant="body1">
+                  {props.item.locuri}
+                </Typography>
+              </div>
+
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Locuri buget
+                </Typography>
+                <Typography component="body1" variant="body1">
+                {props.item.buget}
+                </Typography>
+              </div>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Locuri taxa
+                </Typography>
+                <br/>
+                <Typography component="body1" variant="body1">
+                {props.item.loc_taxa}
+                </Typography>
+              </div>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Taxa anuala
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.taxa}
+                </Typography>
+              </div>
+
+              <div className={classes.cell}>
+                <Typography variant="body1" color="textSecondary">
+                  Modalitate admitere
+                </Typography>
+                <Typography component="body1" variant="body1">
+                  {props.item.admition}
+                </Typography>
+              </div>
+
+            </CardContent>
+            </div>
+          </div>
+
+          {/* <div className={classes.controls}>
             <Button aria-label="previous">
               ceva
             </Button>
@@ -63,38 +223,9 @@ export default function CardItem2(props) {
             <Button aria-label="next">
               ceva
             </Button>
-          </div>
+          </div> */}
         </div>
       </Card>
-
-      {/* <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="/toca.jpg"
-            title={props.item.name}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {props.item.name}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Descriere bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-              bla bla bla bla bla bla bla 
-              bla bla bla bla bla bla bla 
-              bla bla bla bla bla bla bla 
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
-      </Card> */}
     </div>
 
   );
