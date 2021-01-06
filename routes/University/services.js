@@ -31,16 +31,19 @@ const getByCity = async (city, query) => {
    return await University.find({
       city: city
    })
-       .skip(query.size * query.page)
-       .limit(query.size);
 };
 
 const getByName = async ( name, query) => {
    return await University.find({
       name: name
    })
-       .skip(query.size * query.page)
-       .limit(query.size);
+};
+
+const getByNameAndCity = async ( name, city, query) => {
+   return await University.find({
+      name: name,
+      city: city
+   })
 };
 
 module.exports = {
@@ -48,5 +51,6 @@ module.exports = {
    getAll,
    getById,
    getByCity,
-   getByName
+   getByName,
+   getByNameAndCity
 }

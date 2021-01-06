@@ -30,11 +30,9 @@ const getById = async (id, query) => {
 };
 
 const getByUniversityId = async (universityId, query) => {
-   return await College.findOne({
-      universityId: universityId
+   return await College.find({
+      university: universityId
    })
-       .skip(query.size * query.page)
-       .limit(query.size);
 };
 
 module.exports = {

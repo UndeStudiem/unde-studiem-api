@@ -29,14 +29,6 @@ router.post('/', checkSchema(collegeSchema), async (req, res, next) => {
    }
 });
 
-router.get('/', checkSchema(querySchema), async (req, res, next) => {
-   try {
-      res.status(200).json(await service.getAll(req.query));
-   } catch (err) {
-      next(err);
-   }
-});
-
 router.get('/:id', checkSchema(querySchema), async (req, res, next) => {
    const {
       id
@@ -50,14 +42,19 @@ router.get('/:id', checkSchema(querySchema), async (req, res, next) => {
 });
 
 router.get('', checkSchema(querySchema), async (req, res, next) => {
-   const {
-      universityId
-   } = req.query.universityId;
 
-   try {
-      res.status(200).json(await service.getByUniversityId(universityId, querySchema));
-   } catch (err) {
-      next(err);
+   if (req.query.universityId != null ) {
+      try {
+         res.status(200).json(await service.getByUniversityId(req.query.universityId , querySchema));
+      } catch (err) {
+         next(err);
+      }
+   } else { //empty query params => getAll
+      try {
+         res.status(200).json(await service.getAll(req.query));
+      } catch (err) {
+         next(err);
+      }
    }
 });
 
