@@ -14,6 +14,34 @@ const collegeSchema = {
       in: ['body'],
       errorMessage: 'University Id is missing from body',
       matches: '^[0-9a-fA-F]{24}$',
+   },
+   description: {
+      in: ['body'],
+      errorMessage: 'College description is missing from body'
+   },
+   graduateRate: {
+      in: ['body'],
+      errorMessage: 'College graduateRate is missing from body'
+   },
+   employabilityRate: {
+      in: ['body'],
+      errorMessage: 'College employabilityRate is missing from body'
+   },
+   studentOrganizations: {
+      in: ['body'],
+      errorMessage: 'College StudentOrganizations is missing from body'
+   },
+   partnerships: {
+      in: ['body'],
+      errorMessage: 'College Partnerships is missing from body'
+   },
+   accommodationType: {
+      in: ['body'],
+      errorMessage: 'College accommodationType is missing from body'
+   },
+   otherFacilities: {
+      in: ['body'],
+      errorMessage: 'College otherFacilities is missing from body'
    }
 };
 

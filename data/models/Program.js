@@ -14,13 +14,52 @@ const ProgramSchema = new Schema({
    },
    degree: {
       type: String,
-      enum: ['Associate', 'Bachelor', 'Master', 'Doctoral'],
+      enum: ['PU', 'L', 'M', 'D', 'L+M'],
       require: true
    },
-   field: {
+   language: {
       type: String,
+      enum: ['RO', 'EN', 'FR', 'DU'],
       require: true
+   },
+   type: {
+      type: String,
+      enum: ['IF', 'ID', 'IFR'],
+      require: true
+   },
+   accredited: {
+      type: String,
+      enum: ['A', 'AP']
+   },
+   duration: {
+      type: Number
+   },
+   organization: {
+      type: Number
+   },
+   credits: {
+      type: Number
+   },
+   totalPlaces: {
+      type: Number
+   },
+   taxFreePlaces: {
+      type: Number
+   },
+   taxPlaces: {
+      type: Number
+   },
+   admissionType: {
+      type: String,
+      enum: ['DOSAR', 'EXAMEN', 'EXAMEN+BAC']
+   },
+   courses: {
+      type: String
+   },
+   competencies: {
+      type: String
    }
+
 }, { timestamps: true });
 
 const ProgramModel = mongoose.model('Program', ProgramSchema);

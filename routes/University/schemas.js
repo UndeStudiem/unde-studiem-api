@@ -10,6 +10,16 @@ const universitySchema = {
          }
       },
    },
+   shortname: {
+      in: ['body'],
+      errorMessage: 'University shortname is missing from body',
+      matches: '[A-Z]',
+      isLength: {
+         options: {
+            max: 10
+         }
+      },
+   },
    city: {
       in: ['body'],
       errorMessage: 'University city is missing from body',
@@ -18,6 +28,26 @@ const universitySchema = {
             max: 100
          }
       },
+   },
+   description: {
+      in: ['body'],
+      errorMessage: 'University description is missing from body'
+   },
+   website: {
+      in: ['body'],
+      errorMessage: 'University website is missing from body'
+   },
+   year: {
+      in: ['body'],
+      errorMessage: 'University year is missing from body'
+   },
+   faculties: {
+      in: ['body'],
+      errorMessage: 'University number of faculties is missing from body'
+   },
+   students: {
+      in: ['body'],
+      errorMessage: 'University number of students is missing from body'
    }
 };
 

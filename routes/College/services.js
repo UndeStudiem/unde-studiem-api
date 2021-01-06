@@ -1,9 +1,17 @@
 const { College } = require('../../data')
 
-const create = async (name, universityId) => {
+const create = async (name, universityId, description, graduateRate, employabilityRate, studentOrganizations,
+                      partnerships, accommodationType, otherFacilities) => {
    const record = new College({
       name,
-      university: universityId
+      university: universityId,
+      description,
+      graduateRate,
+      employabilityRate,
+      studentOrganizations,
+      partnerships,
+      accommodationType,
+      otherFacilities
    });
    await record.save();
 };
@@ -15,7 +23,23 @@ const getAll = async (query) => {
       .limit(query.size);
 };
 
+const getById = async (id, query) => {
+   return await College.findById(id)
+       .skip(query.size * query.page)
+       .limit(query.size);
+};
+
+const getByUniversityId = async (universityId, query) => {
+   return await College.findOne({
+      universityId: universityId
+   })
+       .skip(query.size * query.page)
+       .limit(query.size);
+};
+
 module.exports = {
    create,
    getAll,
+   getById,
+   getByUniversityId
 }
