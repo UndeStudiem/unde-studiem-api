@@ -7,6 +7,8 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Search from './Search/Search';
 import Results from './Results/Results';
 import Programs from './Programs/Programs';
+import College from './College/College';
+import { Collection } from 'mongoose';
 
 
 
@@ -22,8 +24,10 @@ function App() {
 
         <Route exact path={`/`} exact component={Home}/>
         <Route exact path={`/search`} exact component={Search}/>
-        <Route exact path={`/programs`} exact component={Results}/>
+        <Route exact path={`/results`} exact component={Results}/>
         <Route exact path={`/programs/:id`} exact component={Programs}/>
+        <Route exact path={`/college/:id`} exact component={College}/>
+
         {/* <Route exact path={`/tests/:id`} exact component={TestPage}/>
         <Route exact path={`/createdtests`} exact component={CreatedTests}/>
         <Route exact path={`/createdtests/:id`} exact component={TestPage}/>

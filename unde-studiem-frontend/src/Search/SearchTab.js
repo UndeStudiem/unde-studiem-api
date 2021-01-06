@@ -4,6 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import { Link} from "react-router-dom";
 import Chip from '@material-ui/core/Chip';
 
@@ -43,7 +44,9 @@ export default function SearchTab(props) {
   const [values, setValues] = React.useState({
     degree: '',
     field: [],
-    cities: []
+    cities: [],
+    name: [],
+
   });
 
 
@@ -70,7 +73,12 @@ export default function SearchTab(props) {
           <MenuItem value={'Doctoral'}>Doctorat</MenuItem>
         </Select>
       </FormControl>
-      : ''
+      : 
+      <FormControl className={classes.formControl}>
+        <TextField id="standard-basic" label="Nume" />
+      </FormControl>
+
+
       }
 
       <FormControl className={classes.formControl}>
@@ -119,7 +127,7 @@ export default function SearchTab(props) {
       </FormControl>
 
       <br/><br/><br/>
-      <Link to="/programs?type=programs&degree=master&fields=IT-stiinte sociale&cities=Bucuresti-Constanta">
+      <Link to="/results?type=programs&degree=master&fields=IT-stiinte sociale&cities=Bucuresti-Constanta">
         <Button variant="contained" color="primary" size="large">
           Cauta
         </Button>
