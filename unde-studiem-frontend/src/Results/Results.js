@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import { useLocation } from "react-router-dom";
+import Filter from './Filter'
 
 let list = [
   {
@@ -127,14 +128,15 @@ function Results(props) {
 
       </div>
 
-      {/* {query.get("type")}
-      {query.get("degree")}
-      {query.get("city")} */}
+      
+      <Filter degree={query.get("degree")} fields={query.get("fields").split('-')} cities={query.get("cities").split('-')}/>
 
       <div className='Results-list'>
 
         <div className='Result-title'>
-          Rezultate
+          Rezultate &nbsp;{query.get("type") == 'programs' ? 'programe de studiu'
+                            : query.get("type") == 'college' ? 'facultati'
+                            : 'universitati'}
         </div>
 
         {list.map(Element => 
