@@ -1,1 +1,1 @@
-web: node -r dotenv/config start.js dotenv_config_path=.env-prod
+web: npm run start-prod
