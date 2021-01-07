@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 (async () => {
   try {
-    console.log(`${process.env.MPROTOCOL}://${process.env.MUSER}:${process.env.MPASSWORD}@${process.env.MHOST}/${process.env.MDATABASE}?${process.env.MCON_PARAM}`);
     await mongoose.connect(`${process.env.MPROTOCOL}://${process.env.MUSER}:${process.env.MPASSWORD}@${process.env.MHOST}/${process.env.MDATABASE}?${process.env.MCON_PARAM}`,
       {
         useNewUrlParser: true,
