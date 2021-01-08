@@ -7,19 +7,23 @@ const { forumPostSchema, querySchema } = require('./schemas.js');
 
 const router = express.Router();
 
-router.post('/', authorizeAndExtractToken, checkSchema(forumPostSchema), async (req, res, next) => {
-   const {
-      text,
-      forumTopicId
-   } = req.body;
-   const {
-      decoded
-   } = req.state;
+router.post('/', checkSchema(forumPostSchema), async (req, res, next) => {
 
    try {
-      await service.create(text, ObjectId(decoded.userId), ObjectId(forumTopicId));
-
+      await service.create(req.body);
       res.status(201).end();
+   } catch (err) {
+      next(err);
+   }
+});
+
+router.get('/:id', async (req, res, next) => {
+   const {
+      id
+   } = req.params;
+
+   try {
+      res.status(200).json(await service.getById(id));
    } catch (err) {
       next(err);
    }
