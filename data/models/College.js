@@ -12,6 +12,28 @@ const CollegeSchema = new Schema({
       ref: 'University',
       required: true
    },
+   description: {
+      type: String,
+      required: true
+   },
+   graduateRate: {
+      type: String
+   },
+   employabilityRate: {
+      type: String
+   },
+   studentOrganizations:{
+      type: String
+   },
+   partnerships: {
+      type: String
+   },
+   accommodationType: {
+      type: String
+   },
+   otherFacilities: {
+      type: String
+   }
 }, { timestamps: true });
 
 const CollegeModel = mongoose.model('College', CollegeSchema);

@@ -7,13 +7,8 @@ const { collegeSchema, querySchema } = require('./schemas.js');
 const router = express.Router();
 
 router.post('/', checkSchema(collegeSchema), async (req, res, next) => {
-   const {
-      name,
-      universityId
-   } = req.body;
-
    try {
-      await service.create(name, ObjectId(universityId));
+      await service.create(req.body);
 
       res.status(201).end();
    } catch (err) {
@@ -21,7 +16,19 @@ router.post('/', checkSchema(collegeSchema), async (req, res, next) => {
    }
 });
 
-router.get('/', checkSchema(querySchema), async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
+   const {
+      id
+   } = req.params;
+
+   try {
+      res.status(200).json(await service.getById(id));
+   } catch (err) {
+      next(err);
+   }
+});
+
+router.get('', checkSchema(querySchema), async (req, res, next) => {
    try {
       res.status(200).json(await service.getAll(req.query));
    } catch (err) {
