@@ -3,20 +3,48 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ForumPostSchema = new Schema({
-   text: {
+   universityOpinion: {
       type: String,
       required: true
    },
-   author: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
+   programOpinion: {
+      type: String,
       required: true
    },
-   topic: {
-      type: Schema.Types.ObjectId,
-      ref: 'ForumTopic',
+   authorName: {
+      type: String
+   },
+   authorAge: {
+      type: Number,
       required: true
    },
+   authorGender: {
+      type: String,
+      enum: ['F', 'M']
+   },
+   program: {
+      type: Schema.Types.ObjectId,
+      ref: 'Program',
+      required: true
+   },
+   university: {
+      type: Schema.Types.ObjectId,
+      ref: 'University'
+   },
+   college: {
+      type: Schema.Types.ObjectId,
+      ref: 'College'
+   },
+   promotionYear: {
+      type: Number
+   },
+   programStarGrade: {
+     type: Number,
+     required: true
+   },
+   timestamp: {
+      type: String
+   }
 }, { timestamps: true });
 
 const ForumPostModel = mongoose.model('ForumPost', ForumPostSchema);

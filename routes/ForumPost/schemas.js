@@ -1,20 +1,50 @@
 
 const forumPostSchema = {
-   text: {
+   universityOpinion: {
       in: ['body'],
-      errorMessage: 'Program name is missing from body',
-      isLength: {
-         options: {
-            min: 20,
-            max: 1000
-         }
-      },
+      errorMessage: 'Forum Post universityOpinion is missing from body'
    },
-   forumTopicId: {
+   programOpinion: {
       in: ['body'],
-      errorMessage: 'Forum Topic Id is missing from body',
-      matches: '^[0-9a-fA-F]{24}$',
-   }
+      errorMessage: 'Forum Post programOpinion is missing from body'
+   },
+   authorName: {
+      in: ['body'],
+      errorMessage: 'Forum Post authorName is missing from body'
+   },
+   authorAge: {
+      in: ['body'],
+      errorMessage: 'Forum Post authorAge is missing from body'
+   },
+   authorGender: {
+      in: ['body'],
+      errorMessage: 'Forum Post authorGender is missing from body'
+   },
+   programId: {
+      in: ['body'],
+      errorMessage: 'Forum Post program Id is missing from body'
+   },
+   universityId: {
+      in: ['body'],
+      errorMessage: 'Forum Post university Id is missing from body'
+   },
+   collegeId: {
+      in: ['body'],
+      errorMessage: 'Forum Post college Id is missing from body'
+   },
+   promotionYear: {
+      in: ['body'],
+      errorMessage: 'Forum Post promotionYear is missing from body'
+   },
+   programStarGrade: {
+      in: ['body'],
+      errorMessage: 'Forum Post starGrade is missing from body'
+   },
+   timestamp: {
+      in: ['body'],
+      errorMessage: 'Forum Post timestamp is missing from body'
+   },
+
 };
 
 
