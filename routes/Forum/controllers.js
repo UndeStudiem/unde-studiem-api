@@ -7,13 +7,8 @@ const { forumSchema, querySchema } = require('./schemas.js');
 const router = express.Router();
 
 router.post('/', checkSchema(forumSchema), async (req, res, next) => {
-   const {
-      name,
-      universityId
-   } = req.body;
-
    try {
-      await service.create(name, ObjectId(universityId));
+      await service.create(req.body);
 
       res.status(201).end();
    } catch (err) {

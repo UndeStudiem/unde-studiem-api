@@ -1,9 +1,9 @@
 const { Forum } = require('../../data');
 
-const create = async (name, universityId) => {
+const create = async (body) => {
    const record = new Forum({
-      name,
-      university: universityId
+      name: body.name,
+      university: ObjectId(body.universityId)
    });
    await record.save();
 };

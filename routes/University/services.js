@@ -1,56 +1,38 @@
 const { University } = require('../../data');
 
-const create = async (name, shortname, city,  description, website, year, faculties, students) => {
+const create = async (body) => {
    const record = new University({
-      name,
-      shortname,
-      city,
-      description,
-      website,
-      year,
-      faculties,
-      students
+      name: body.name,
+      shortname: body.shortname,
+      city: body.city,
+      description: body.description,
+      website: body.website,
+      year: body.year,
+      faculties: body.faculties,
+      students: body.students
    });
    await record.save();
 };
 
 const getAll = async (query) => {
+   const searchOptions = {
+      name: query.name,
+      city: query.city
+   };
+   sanitizeObject(searchOptions);
+
    return await University
-      .find()
+      .find(searchOptions)
       .skip(query.size * query.page)
       .limit(query.size);
 };
 
-const getById = async (id, query) => {
-   return await University.findById(id)
-       .skip(query.size * query.page)
-       .limit(query.size);
-};
-
-const getByCity = async (city, query) => {
-   return await University.find({
-      city: city
-   })
-};
-
-const getByName = async ( name, query) => {
-   return await University.find({
-      name: name
-   })
-};
-
-const getByNameAndCity = async ( name, city, query) => {
-   return await University.find({
-      name: name,
-      city: city
-   })
+const getById = async (id) => {
+   return await University.findById(id);
 };
 
 module.exports = {
    create,
    getAll,
-   getById,
-   getByCity,
-   getByName,
-   getByNameAndCity
+   getById
 }
