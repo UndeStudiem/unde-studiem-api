@@ -1,6 +1,5 @@
 const express = require('express');
 const { checkSchema } = require('express-validator');
-const { ObjectId } = require('mongodb');
 const service = require('./services.js');
 const { collegeSchema, querySchema } = require('./schemas.js');
 

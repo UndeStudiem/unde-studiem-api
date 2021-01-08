@@ -27,6 +27,11 @@ const ProgramSchema = new Schema({
       enum: ['IF', 'ID', 'IFR'],
       require: true
    },
+   field: {
+      type: String,
+      enum: ['IT', 'Medicina', 'Drept', 'Economie', 'Sport'],
+      require: true
+   },
    accredited: {
       type: String,
       enum: ['A', 'AP']
