@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 (async () => {
   try {
-    await mongoose.connect(`mongodb://${process.env.MUSER}:${process.env.MPASSWORD}@${process.env.MHOST}:${process.env.MPORT}/${process.env.MDATABASE}?authSource=admin`,
+    await mongoose.connect(`${process.env.MPROTOCOL}://${process.env.MUSER}:${process.env.MPASSWORD}@${process.env.MHOST}/${process.env.MDATABASE}?${process.env.MCON_PARAM}`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true
