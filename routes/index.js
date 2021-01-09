@@ -15,7 +15,7 @@ Router.use('/college', CollegeController);
 Router.use('/program', ProgramController);
 Router.use('/forum', ForumController);
 Router.use('/topic', ForumTopicController);
-Router.use('/post', ForumPostController);
+Router.use('/forumpost', ForumPostController);
 Router.use('/review', ReviewController);
 
 
