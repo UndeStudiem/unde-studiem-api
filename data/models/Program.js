@@ -29,7 +29,21 @@ const ProgramSchema = new Schema({
    },
    field: {
       type: String,
-      enum: ['IT', 'Medicina', 'Drept', 'Economie', 'Sport'],
+      enum: ['Științe Inginerești',
+         'Științe Politice și Comunicare',
+         'Științe Sociale și Psihologie',
+         'Științe Umaniste',
+         'Științe ale Naturii',
+         'Științe Juridice',
+         'Arte, Arhitectură și Urbanism',
+         'Științe Economice',
+         'Științe Exacte',
+         'Științe ale Naturii',
+         'Științe Agricole',
+         'Medicină',
+         'Ştiinţa Sportului şi Educaţiei Fizice',
+         'Teologie',
+         'Științe Militare și de Informații'],
       require: true
    },
    accredited: {
