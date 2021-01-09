@@ -55,7 +55,7 @@ const getAll = async (query) => {
 };
 
 const getById = async (id) => {
-   return await College.findById(id);
+   return await College.findById(id).populate({ path: 'university'});
 };
 
 module.exports = {

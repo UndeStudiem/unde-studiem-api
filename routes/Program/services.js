@@ -51,7 +51,7 @@ const getAll = async (query) => {
 };
 
 const getById = async (id) => {
-   return await Program.findById(id);
+   return await Program.findById(id).populate({ path: 'college'});
 };
 
 
