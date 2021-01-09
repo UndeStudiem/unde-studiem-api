@@ -18,6 +18,7 @@ const create = async (body) => {
       taxFreePlaces: body.taxFreePlaces,
       taxPlaces: body.taxPlaces,
       admissionType: body.admissionType,
+      tax: body.tax,
       courses: body.courses,
       competencies: body.competencies
    });

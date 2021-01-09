@@ -59,6 +59,10 @@ const programSchema = {
       in: ['body'],
       errorMessage: 'Program admissionType is missing from body',
    },
+   tax: {
+      in: ['body'],
+      errorMessage: 'Program tax is missing from body'
+   },
    courses: {
       in: ['body'],
       errorMessage: 'Program courses is missing from body',

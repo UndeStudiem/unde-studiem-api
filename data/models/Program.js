@@ -43,8 +43,7 @@ const ProgramSchema = new Schema({
          'Medicină',
          'Ştiinţa Sportului şi Educaţiei Fizice',
          'Teologie',
-         'Științe Militare și de Informații'],
-      require: true
+         'Științe Militare și de Informații']
    },
    accredited: {
       type: String,
@@ -71,6 +70,9 @@ const ProgramSchema = new Schema({
    admissionType: {
       type: String,
       enum: ['DOSAR', 'EXAMEN', 'EXAMEN+BAC']
+   },
+   tax: {
+      type: String
    },
    courses: {
       type: String
