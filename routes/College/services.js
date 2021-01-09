@@ -45,7 +45,7 @@ const getAll = async (query) => {
          ? programs.filter(program => myfields.includes(program.field))
          : programs
 
-      if(selectedPrograms.length){
+      if((myfields && selectedPrograms.length) || !myfields || !myfields.length){
          college = {...college._doc}
          college['fields'] = [...new Set(programs.map(Element => Element.field))]
          collegesList.push(college)
