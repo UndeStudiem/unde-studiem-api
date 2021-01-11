@@ -29,6 +29,6 @@ const ReviewSchema = new Schema({
    }
 }, { timestamps: true });
 
-const ReviewModel = mongoose.model('Review', ReviewSchema);
+const ReviewModel = mongoose.model('Review', ReviewSchema, 'reviews');
 
 module.exports = ReviewModel;

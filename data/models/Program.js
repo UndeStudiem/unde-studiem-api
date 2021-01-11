@@ -83,6 +83,6 @@ const ProgramSchema = new Schema({
 
 }, { timestamps: true });
 
-const ProgramModel = mongoose.model('Program', ProgramSchema);
+const ProgramModel = mongoose.model('Program', ProgramSchema, 'programs');
 
 module.exports = ProgramModel;
